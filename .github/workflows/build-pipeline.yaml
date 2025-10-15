@@ -1,1 +1,48 @@
+name: "Build and Test Pipeline - Jasleen Virk"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Starting build process...
+        run: echo "Starting build process..."
+
+      - name: Simulate compilation (3s)
+        run: |
+          echo "Compiling..."
+          sleep 3
+
+      - name: Build completed
+        run: |
+          echo "Build completed successfully"
+          echo "Built by Jasleen Virk"
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Running automated tests...
+        run: echo "Running automated tests..."
+
+      - name: Simulate tests (2s)
+        run: |
+          echo "Executing tests..."
+          sleep 2
+
+      - name: Print current date and time
+        run: date
+
+      - name: Tests passed
+        run: echo "All tests passed for Jasleen Virk"
 
